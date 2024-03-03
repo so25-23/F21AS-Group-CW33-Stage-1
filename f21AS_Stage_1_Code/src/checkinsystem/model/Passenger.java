@@ -1,7 +1,7 @@
 package checkinsystem.model;
 
 // This class holds and processes Passenger information.
-public class Passenger {
+public class Passenger implements FlightCode {
 	
 	// Variables
 	private String firstName;
@@ -12,8 +12,7 @@ public class Passenger {
 	private double baggageWidth;
 	private double baggageHeight;
 	private double baggageVolume;
-	private double excessBaggageFee; // TODO I think this has to be initialised to 0.
-	private boolean checkedIn; // TODO I think this has to be initialised to false.
+	private boolean checkedIn; 
 	private String flightCode;
 	
 	/**
@@ -28,9 +27,8 @@ public class Passenger {
 					 double baggageWidth,
 					 double baggageHeight,
 					 double baggageVolume,
-					 double excessBaggageFee,
 					 boolean checkedIn,
-					 String flightCode) {
+					 String flightCode) { 
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -40,9 +38,9 @@ public class Passenger {
 		this.baggageWidth = baggageWidth;
 		this.baggageHeight = baggageHeight;
 		this.baggageVolume = baggageVolume;
-		this.excessBaggageFee = excessBaggageFee;
 		this.checkedIn = checkedIn;
-		this.flightCode = flightCode;
+		this.flightCode = flightCode; 
+		
 	}
 	
 	// Methods (Getters)
@@ -104,20 +102,19 @@ public class Passenger {
 	}
 	
 	/**
-	 * @return The Passenger's excess baggage fee.
-	 */
-	public double getExcessBaggageFee() {
-		return excessBaggageFee;
-	}
-	
-	/**
 	 * @return The Passenger's checked-in status (true = yes; false = no).
 	 */
 	public boolean getCheckedInStatus() {
 		return checkedIn;
 	}
 	
-	// TODO Add getFligthCode() method after Interface class has been set up.
+	/**
+	 * Completing the interface method.
+	 * @return The passenger's flight code.
+	 */
+	public String getFlightCode() {
+		return flightCode;
+	}
 	
 	// Methods (Setters)
 	
@@ -159,14 +156,6 @@ public class Passenger {
 	 */
 	public void setBaggageVolume(double volume) {
 		baggageVolume = volume;
-	}
-	
-	/**
-	 * Set a new value for the Passenger's excess baggage fee.
-	 * @param excessBaggageFee The new excess baggage fee value.
-	 */
-	public void setExcessBaggageFee(double excessBaggageFee) {
-		this.excessBaggageFee = excessBaggageFee;
 	}
 	
 	/**
