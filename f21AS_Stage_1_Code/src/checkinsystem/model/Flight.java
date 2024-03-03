@@ -1,7 +1,7 @@
 package checkinsystem.model;
 
 //This class holds and processes Flight information.
-public class Flight {
+public class Flight implements FlightCode {
 	
 	// Variables
 	private String carrier;
@@ -13,6 +13,8 @@ public class Flight {
 	private int passengersOnBoard;
 	private double baggageWeightOnBoard;
 	private double baggageVolumeOnBoard;
+	private boolean isFlightExceeded; // New addition (change from design)
+	private double excessBaggageFee; // New addition (change from design)
 	
 	/**
 	 * Constructor to set up the Flight's information.
@@ -26,7 +28,9 @@ public class Flight {
 				  String flightCode,
 				  int passengersOnBoard,
 				  double baggageWeightOnBoard,
-				  double baggageVolumeOnBoard) {
+				  double baggageVolumeOnBoard,
+				  boolean isFlightExceeded,
+				  double excessBaggageFee) {
 		
 		this.carrier = carrier;
 		this.destinationAirport = destinationAirport;
@@ -37,6 +41,8 @@ public class Flight {
 		this.passengersOnBoard = passengersOnBoard;
 		this.baggageWeightOnBoard = baggageWeightOnBoard;
 		this.baggageVolumeOnBoard = baggageVolumeOnBoard;
+		this.isFlightExceeded = isFlightExceeded;
+		this.excessBaggageFee = excessBaggageFee;
 	}
 	
 	// Methods (Getters)
@@ -97,7 +103,39 @@ public class Flight {
 		return baggageVolumeOnBoard; 
 	}
 	
-	// TODO Add getFligthCode() method after Interface class has been set up.
+	/**
+	 * Completing the interface method.
+	 * @return The flight's flight code.
+	 */
+	public String getFlightCode() {
+		return flightCode;
+	}
+	
+	/**
+	 * Determine if the Flight's capacity has been exceeded.
+	 * @return The verdict; true = yes and false = no.
+	 */
+	public boolean isFlightCapacityExceeded() {
+	
+		if (passengersOnBoard > flightCapacity) {
+			
+			isFlightExceeded = true;
+			
+		} else if (passengersOnBoard <= flightCapacity) {
+			
+			isFlightExceeded = false;
+			
+		}
+		return isFlightExceeded;
+	}
+	
+	/**
+	 * @return The Flight's excess baggage fee.
+	 */
+	public double getExcessBaggageFee() {
+		return excessBaggageFee;
+	}
+	
 	
 	// Methods (Setters)
 	
@@ -163,6 +201,14 @@ public class Flight {
 	 */
 	public void setBaggageVolumeOnBoard(double baggageVolumeOnBoard) {
 		this.baggageVolumeOnBoard = baggageVolumeOnBoard;
+	}
+	
+	/**
+	 * Set a new value for the Passenger's excess baggage fee.
+	 * @param excessBaggageFee The new excess baggage fee value.
+	 */
+	public void setExcessBaggageFee(double excessBaggageFee) {
+		this.excessBaggageFee = excessBaggageFee;
 	}
 	
 }
