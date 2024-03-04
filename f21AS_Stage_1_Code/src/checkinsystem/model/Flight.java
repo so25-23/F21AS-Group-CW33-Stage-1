@@ -18,7 +18,6 @@ public class Flight implements FlightCode {
 	
 	/**
 	 * Constructor to set up the Flight's information.
-	 * TODO Add an Exception(s) here. 
 	 */
 	public Flight(String carrier,
 				  String destinationAirport,
@@ -31,6 +30,12 @@ public class Flight implements FlightCode {
 				  double baggageVolumeOnBoard,
 				  boolean isFlightExceeded,
 				  double excessBaggageFee) {
+		
+		// carrier and destinationAirport must be entered.
+		if (carrier.length() == 0 || destinationAirport.length() == 0) {
+			
+			throw new IllegalStateException("carrier or destinationAirport cannot be left blank");
+		}
 		
 		this.carrier = carrier;
 		this.destinationAirport = destinationAirport;
