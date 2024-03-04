@@ -16,7 +16,6 @@ public class BookingList {
 	
 	/**
 	 * Constructor to set up the Passenger and Flight objects.
-	 * TODO Add an Exception(s) here.  
 	 */
 	public BookingList() {
 		passengerList = new ArrayList<Passenger>();
