@@ -17,7 +17,6 @@ public class Passenger implements FlightCode {
 	
 	/**
 	 * Constructor to set up the Passenger's information.
-	 * TODO Add an Exception(s) here. 
 	 */
 	public Passenger(String firstName, 
 					 String lastName, 
@@ -30,6 +29,12 @@ public class Passenger implements FlightCode {
 					 boolean checkedIn,
 					 String flightCode) { 
 		
+		// lastName and bookingReference must be entered.
+		if (lastName.length() == 0 || bookingReference.length() == 0) {
+			
+			throw new IllegalStateException("lastName or bookingReference cannot be left blank");
+		}
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.bookingReference = bookingReference;
@@ -40,7 +45,6 @@ public class Passenger implements FlightCode {
 		this.baggageVolume = baggageVolume;
 		this.checkedIn = checkedIn;
 		this.flightCode = flightCode; 
-		
 	}
 	
 	// Methods (Getters)
