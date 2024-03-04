@@ -36,7 +36,7 @@ public class BookingList {
 		for (Passenger passenger : passengerList) {
 			
 			// If the booking reference match.
-			if (passenger.getBookingReference() == bookingReference) {
+			if (passenger.getBookingReference().equalsIgnoreCase(bookingReference)) {
 				return passenger;
 			}
 		}
@@ -54,7 +54,7 @@ public class BookingList {
 		for (Passenger passenger : passengerList) {
 			
 			// If the flight code match.
-			if (passenger.getFlightCode() == flightCode) {
+			if (passenger.getFlightCode().equalsIgnoreCase(flightCode)) {
 				return passenger;
 			}
 		}
@@ -72,7 +72,7 @@ public class BookingList {
 		for (Flight flight : flightList) {
 			
 			// If the flight code match.
-			if (flight.getFlightCode() == flightCode) {
+			if (flight.getFlightCode().equalsIgnoreCase(flightCode)) {
 				return flight;
 			}
 		}
@@ -165,7 +165,7 @@ public class BookingList {
 		for (Flight flight : flightList) {
 			
 			// If the carrier match.
-			if (flight.getFlightCarrier() == carrier) {
+			if (flight.getFlightCarrier().equalsIgnoreCase(carrier)) {
 				return flight;
 			}
 		}
@@ -541,22 +541,4 @@ public class BookingList {
 	     System.exit(1);
 	 	}
 	}
-	
-	
-	
-	
-	
 }
-    
-    
-    
-    
-	
-	
-	
-	
-	
-	
-	
-
-
