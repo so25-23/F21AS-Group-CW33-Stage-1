@@ -216,4 +216,7 @@ public class Flight implements FlightCode {
 		this.excessBaggageFee = excessBaggageFee;
 	}
 	
+	public void setFlightExceeded(boolean isFlightExceeded) {
+		this.isFlightExceeded = isFlightExceeded;
+	}
 }

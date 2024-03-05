@@ -1,5 +1,7 @@
 package checkinsystem.model;
 
+import checkinsystem.gui.CheckInGUI;
+
 // This class serves as the main/manager of the system.
 public class CheckInApp {
 	
@@ -18,6 +20,10 @@ public class CheckInApp {
 	}
 	
 	// Methods
+	public void showGUI() {
+		CheckInGUI gui = new CheckInGUI(bookingLists);
+        gui.setVisible(true);
+    } 
 	
 	/**
 	 * TEST METHOD ONLY
@@ -53,6 +59,7 @@ public class CheckInApp {
 		
 		// Run the full program TODO THIS IS A TEST AND NOT FINAL
 		checkInApp.execute();
+		checkInApp.showGUI();
     }
 
 }

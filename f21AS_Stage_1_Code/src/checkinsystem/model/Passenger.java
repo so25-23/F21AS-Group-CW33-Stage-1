@@ -12,6 +12,7 @@ public class Passenger implements FlightCode {
 	private double baggageWidth;
 	private double baggageHeight;
 	private double baggageVolume;
+	private double excessFee;
 	private boolean checkedIn; 
 	private String flightCode;
 	
@@ -170,4 +171,38 @@ public class Passenger implements FlightCode {
 		this.checkedIn = checkedIn;
 	}
 	
+	public double getExcessFee() {
+		return excessFee;
+	}
+
+	public void setExcessFee(double excessFee) {
+		this.excessFee = excessFee;
+	}
+	
+	public double caculateExcessFee() {
+		
+		double volumeFee = 0.0;
+		double weightFee = 0.0;
+		
+		if (this.getBaggageVolume() > 0 && this.getBaggageVolume() < 5000) {
+            volumeFee = 5.0;
+        } else if (this.getBaggageVolume() < 10000) {
+            volumeFee = 10.0;
+        } else {
+            volumeFee = 15.0;
+        }
+
+        if (this.getBaggageWeight() > 0 && this.getBaggageWeight() < 50) {
+            weightFee = 5.0;
+        } else if (this.getBaggageWeight() < 100) {
+            weightFee = 10.0;
+        } else {
+            weightFee = 15.0;
+        }
+
+        double excessFee_ = volumeFee + weightFee;
+        this.excessFee = excessFee_;
+        return this.excessFee;
+	}
+
 }
