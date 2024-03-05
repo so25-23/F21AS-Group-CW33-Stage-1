@@ -188,6 +188,7 @@ public class Passenger implements FlightCode {
 	/**
 	 * Set a new value for the Passenger's baggage height.
 	 * @param height The new height value.
+	 * TODO Is value conversion needed? (m3)
 	 */
 	public void setBaggageHeight(double height) {
 		baggageHeight = height;
