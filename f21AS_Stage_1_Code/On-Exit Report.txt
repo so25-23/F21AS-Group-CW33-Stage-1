@@ -2,4 +2,4 @@ On-Exit Report
 
 Flight Code    No. of Passengers Checked-In      Total Passenger Baggage Weight     Total Passenger Baggage Volume     Total Excess Baggage Fee     Flight Capacity Exceeded?
 VS 95          0                                 0.0                                0.0                                0.0                          false
-BA 22          0                                 0.0                                0.0                                0.0                          false
+BA 22          1                                 0.0                                0.0                               20.0                          false

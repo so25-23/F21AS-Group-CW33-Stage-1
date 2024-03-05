@@ -14,7 +14,7 @@ public class Flight implements FlightCode {
 	private double baggageWeightOnBoard;
 	private double baggageVolumeOnBoard;
 	private boolean isFlightExceeded; // New addition (change from design)
-	private double excessBaggageFee; // New addition (change from design)
+	private double flightExcessBaggageFee; // New addition (change from design)
 	
 	/**
 	 * Constructor to set up the Flight's information.
@@ -29,7 +29,7 @@ public class Flight implements FlightCode {
 				  double baggageWeightOnBoard,
 				  double baggageVolumeOnBoard,
 				  boolean isFlightExceeded,
-				  double excessBaggageFee) {
+				  double flightExcessBaggageFee) {
 		
 		// carrier and destinationAirport must be entered.
 		if (carrier.length() == 0 || destinationAirport.length() == 0) {
@@ -47,7 +47,7 @@ public class Flight implements FlightCode {
 		this.baggageWeightOnBoard = baggageWeightOnBoard;
 		this.baggageVolumeOnBoard = baggageVolumeOnBoard;
 		this.isFlightExceeded = isFlightExceeded;
-		this.excessBaggageFee = excessBaggageFee;
+		this.flightExcessBaggageFee = flightExcessBaggageFee;
 	}
 	
 	// Methods (Getters)
@@ -137,10 +137,9 @@ public class Flight implements FlightCode {
 	/**
 	 * @return The Flight's excess baggage fee.
 	 */
-	public double getExcessBaggageFee() {
-		return excessBaggageFee;
+	public double getFlightExcessBaggageFee() {
+		return flightExcessBaggageFee;
 	}
-	
 	
 	// Methods (Setters)
 	
@@ -209,11 +208,21 @@ public class Flight implements FlightCode {
 	}
 	
 	/**
-	 * Set a new value for the Passenger's excess baggage fee.
-	 * @param excessBaggageFee The new excess baggage fee value.
+	 * Set a new value for the Flight's exceeded status.
+	 * @param isFlightExceeded The new status of exceeded.
+	 * TODO Tag - Abeer addition. 
 	 */
-	public void setExcessBaggageFee(double excessBaggageFee) {
-		this.excessBaggageFee = excessBaggageFee;
+	public void setFlightExceeded(boolean isFlightExceeded) {
+		this.isFlightExceeded = isFlightExceeded;
 	}
+	
+	/**
+	 * Set a new value for the Flight's excess baggage fee.
+	 * @param flightExcessBaggageFee The new flight excess baggage fee value.
+	 */
+	public void setFlightExcessBaggageFee(double flightExcessBaggageFee) {
+		this.flightExcessBaggageFee = flightExcessBaggageFee;
+	}
+	
 	
 }
