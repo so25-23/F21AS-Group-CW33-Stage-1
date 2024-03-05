@@ -31,4 +31,45 @@ class PassengerConstructorTest {
 	
 	//TODO Additional unit tests
 	
+	// Exception test case (invalid data - last name not provided).
+	@Test
+	public void testLastNameInvalid() {
+		
+		Exception lastNameException = assertThrows(IllegalStateException.class, () -> {
+			
+			// Last name is missing.
+            new Passenger("David", "", "ABC678", 0, 0, 0, 0, 0, false, "VS 95");
+        });
+		
+		// This test should fail here due to the expected exception.
+		assertEquals("Smith", lastNameException.getMessage());
+	}
+	
+	// Exception test case (invalid data - booking reference not provided).
+	@Test
+	public void testBookingReferenceInvalid() {
+		
+		Exception bookingReferenceException = assertThrows(IllegalStateException.class, () -> {
+			
+			// Booking reference is missing.
+            new Passenger("David", "Smith", "", 0, 0, 0, 0, 0, false, "VS 95");
+        });
+		
+		// This test should fail here due to the expected exception.
+		assertEquals("ABC123", bookingReferenceException.getMessage());
+	}
+	
+	// Exception test case (invalid data - last name and booking reference not provided).
+	@Test
+	public void testLastNameAndBookingReferenceInvalid() {
+		
+		Exception lastNameAndBookingReferenceException = assertThrows(IllegalStateException.class, () -> {
+			
+			// Last name and booking reference are missing.
+            new Passenger("David", "", "", 0, 0, 0, 0, 0, false, "VS 95");
+        });
+		
+		// This test should fail here due to the expected exception.
+		assertEquals("ABC123", lastNameAndBookingReferenceException.getMessage());
+	}
 }
