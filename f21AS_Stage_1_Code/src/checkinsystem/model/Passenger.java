@@ -14,7 +14,7 @@ public class Passenger implements FlightCode {
 	private double baggageVolume;
 	private boolean checkedIn; 
 	private String flightCode;
-	private double passengerExcessBaggageFee; // TODO Tag - Abeer addition
+	private double passengerExcessBaggageFee; 
 	
 	/**
 	 * Constructor to set up the Passenger's information.
@@ -34,6 +34,11 @@ public class Passenger implements FlightCode {
 		// lastName and bookingReference must be entered.
 		if (lastName.length() == 0 || bookingReference.length() == 0) {
 			throw new IllegalStateException("lastName or bookingReference cannot be left blank.");
+		}
+		
+		// bookingReference String must be 6 characters in length.
+		if (bookingReference.length() != 6) {
+			throw new IllegalStateException("bookingReference must be 6 characters in length; for example 'AAA123'.");
 		}
 		
 		// baggageWeight must be equal to or greater than 0.
@@ -159,7 +164,6 @@ public class Passenger implements FlightCode {
 	
 	/**
 	 * @return The Passenger's excess baggage fee.
-	 * TODO Tag - Abeer addition.
 	 */
 	public double getPassengerExcessBaggageFee() {
 		return passengerExcessBaggageFee;
@@ -167,7 +171,6 @@ public class Passenger implements FlightCode {
 	
 	/**
 	 * Calculate the Passenger's excess baggage fee (GUI)
-	 * TODO Tag - Abeer addition
 	 */
 	public double caculateExcessFee() {
 		
@@ -175,26 +178,33 @@ public class Passenger implements FlightCode {
 		double weightFee = 0.0;
 
 		if (this.getBaggageVolume() > 0 && this.getBaggageVolume() < 5000) { 
+			
             volumeFee = 5.0;
-        //} else if (this.getBaggageVolume() < 10000) { Old TODO
-		} else if (this.getBaggageVolume() >= 5000  && this.getBaggageVolume() < 10000) { // New (fix)    
+            
+		} else if (this.getBaggageVolume() >= 5000  && this.getBaggageVolume() < 10000) {   
+			
             volumeFee = 10.0;
-        //} else { Old TODO
-		} else if(this.getBaggageVolume() >= 10000){ // New (fix)   
+            
+		} else if (this.getBaggageVolume() >= 10000) {   
+			
             volumeFee = 15.0;
         }
 
         if (this.getBaggageWeight() > 0 && this.getBaggageWeight() < 50) {
+        	
             weightFee = 5.0;
-        //} else if (this.getBaggageWeight() < 100) { Old TODO
-        } else if (this.getBaggageWeight() >= 50 && this.getBaggageWeight() < 100) { // New (fix)  
+            
+        } else if (this.getBaggageWeight() >= 50 && this.getBaggageWeight() < 100) {  
+        	
             weightFee = 10.0;
-        //} else { Old TODO
-        } else if(this.getBaggageWeight() >= 100){ // New (fix)
+            
+        } else if (this.getBaggageWeight() >= 100) { 
+        	
             weightFee = 15.0;
         }
 
         double excessFee = volumeFee + weightFee;
+        
         this.passengerExcessBaggageFee = excessFee;
         return this.passengerExcessBaggageFee;
 	}
@@ -209,6 +219,7 @@ public class Passenger implements FlightCode {
 	public void setBaggageWeight(double weight) throws CheckInException {
 		
 		if (weight < 0) {
+			
 			throw new CheckInException(weight);
 		}
 		else
@@ -223,6 +234,7 @@ public class Passenger implements FlightCode {
 	public void setBaggageLength(double length) throws CheckInException {
 		
 		if (length < 0) {
+			
 			throw new CheckInException(length);
 		}
 		else
@@ -237,6 +249,7 @@ public class Passenger implements FlightCode {
 	public void setBaggageWidth(double width) throws CheckInException {
 		
 		if (width < 0) {
+			
 			throw new CheckInException(width);
 		}
 		else
@@ -246,12 +259,12 @@ public class Passenger implements FlightCode {
 	/**
 	 * Set a new value for the Passenger's baggage height.
 	 * @param height The new height value.
-	 * TODO Is value conversion needed? (m3)
 	 * @throws CheckInException 
 	 */
 	public void setBaggageHeight(double height) throws CheckInException {
 		
 		if (height < 0) {
+			
 			throw new CheckInException(height);
 		}
 		else
@@ -266,6 +279,7 @@ public class Passenger implements FlightCode {
 	public void setBaggageVolume(double volume) throws CheckInException {
 		
 		if (volume < 0) {
+			
 			throw new CheckInException(volume);
 		}
 		else
@@ -283,7 +297,6 @@ public class Passenger implements FlightCode {
 	/**
 	 * Set a new value for the Passenger's excess baggage fee.
 	 * @param passengerExcessFee The new excess baggage fee value.
-	 * TODO Tag - Abeer addition.
 	 * @throws CheckInException 
 	 */
 	public void setExcessFee(double passengerExcessBaggageFee) throws CheckInException {
