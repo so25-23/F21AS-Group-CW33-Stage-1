@@ -2,7 +2,8 @@ package checkinsystem.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.*;
 
 import javax.swing.*;
@@ -27,6 +28,18 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.setBounds(150, 150, 600, 400);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+            	System.out.println("Report Generated");
+            	// Create report output
+        		System.out.print("Created On-Exit Report.txt report");
+        		String bookingsData = bookingLists.getFirstReportData();
+        		String flightsData = bookingLists.getLastReportData();
+        		bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData); 
+            }
+        });
         
         JLabel detailsLabel = new JLabel("Please Enter Luggage Details");
         detailsLabel.setBounds(220, 70, 200, 15);
@@ -148,11 +161,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		System.out.println(ps.getCheckedInStatus());
         		
         		// Create report output
-        		System.out.print("Created On-Exit Report.txt report");
+        		/*System.out.print("Created On-Exit Report.txt report");
         		String bookingsData = bookingLists.getFirstReportData();
         		String flightsData = bookingLists.getLastReportData();
         		bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData);
-        		
+        		*/
         		JDialog d = new JDialog(frame, "dialog Box");
         		 
                 // create a label

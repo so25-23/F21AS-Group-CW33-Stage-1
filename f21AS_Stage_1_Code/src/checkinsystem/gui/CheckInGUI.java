@@ -2,7 +2,8 @@ package checkinsystem.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.*;
 
 import javax.swing.*;
@@ -27,6 +28,18 @@ public class CheckInGUI extends JFrame implements ActionListener{
         frame.setBounds(100, 100, 730, 489);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+            	System.out.println("Report Generated");
+            	// Create report output
+        		System.out.print("Created On-Exit Report.txt report");
+        		String bookingsData = bookingList.getFirstReportData();
+        		String flightsData = bookingList.getLastReportData();
+        		bookingList.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData); 
+            }
+        });
         
         JLabel centerLabel = new JLabel("Welcome to Check In App");
         centerLabel.setFont(new Font("Arial", Font.BOLD, 20));

@@ -42,32 +42,6 @@ public class BookingList {
 		return null;
 	}
 	
-
-	public void updatePassengerDetails(Passenger passenger) {
-		
-		// For each item in passengerList, execute the loop body referring to the Passenger object.
-		for (Passenger ps : passengerList) {
-			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) {
-				ps = passenger;
-				break;
-			}
-		}
-		
-		for (Flight flight : flightList) {
-			// If the flight code match.
-			if (flight.getFlightCode().equalsIgnoreCase(passenger.getFlightCode())) {
-				
-				flight.setNumberOfPassengersOnBoard(flight.getNumberOfPassengersOnBoard() + 1);
-				flight.setBaggageWeightOnBoard(flight.getBaggageWeightOnBoard() + passenger.getBaggageWeight());
-				flight.setBaggageVolumeOnBoard(flight.getBaggageVolumeOnBoard() + passenger.getBaggageVolume());
-				flight.setExcessBaggageFee(flight.getExcessBaggageFee() + passenger.getExcessFee());
-				flight.setFlightExceeded(flight.isFlightCapacityExceeded());
-				
-				break;
-			}
-		}
-	}
-	
 	/**
      * Return the Passenger object with a specified flight code.
      * @param flightCode The flight code to search.
