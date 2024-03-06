@@ -33,7 +33,6 @@ public class Passenger implements FlightCode {
 		
 		// lastName and bookingReference must be entered.
 		if (lastName.length() == 0 || bookingReference.length() == 0) {
-			
 			throw new IllegalStateException("lastName or bookingReference cannot be left blank");
 		}
 		
@@ -60,6 +59,11 @@ public class Passenger implements FlightCode {
 		// baggageVolume must be equal or greater than 0.
 		if (baggageVolume < 0) {
 			throw new CheckInException(baggageVolume);
+		}
+		
+		// flightCode String must be 5 characters in length (white space inclusive).
+		if (flightCode.length() != 5) {
+			throw new IllegalStateException("flightCode must be 5 characters in length (including white space); for example, 'AA 12'");
 		}
 		
 		// passengerExcessBaggageFee must be equal or greater than 0.
