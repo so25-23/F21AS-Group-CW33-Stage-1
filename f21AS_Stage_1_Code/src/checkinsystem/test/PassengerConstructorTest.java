@@ -73,6 +73,20 @@ class PassengerConstructorTest {
 		assertTrue(true, lastNameAndBookingReferenceException.getMessage());
 	}
 	
+	// Exception test case (invalid data - booking reference is not 6 characters in length).
+	@Test
+	public void testBookingReferenceLengthInvalid() {
+		
+		Exception bookingReferenceLengthException = assertThrows(IllegalStateException.class, () -> {
+			
+			// Booking reference is not 6 characters in length.
+            new Passenger("David", "Smith", "AAA12", 0, 0, 0, 0, 0, false, "VS 95", 0.0);
+        });
+		
+		// The expected exception should throw.
+		assertTrue(true, bookingReferenceLengthException.getMessage());
+	}
+	
 	// Exception test case (invalid data - baggage weight value is less than 0).
 	@Test
 	public void testBaggageWeightInvalid() {
@@ -80,7 +94,7 @@ class PassengerConstructorTest {
 		Exception baggageWeightException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage weight value is invalid.
-			 new Passenger("David", "Smith", "ABC678", -1, 0, 0, 0, 0, false, "VS 95", 0.0);
+			new Passenger("David", "Smith", "ABC678", -1, 0, 0, 0, 0, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -96,7 +110,7 @@ class PassengerConstructorTest {
 		Exception baggageLengthException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage length value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, -50, 0, 0, 0, false, "VS 95", 0.0);
+			new Passenger("David", "Smith", "ABC678", 0, -50, 0, 0, 0, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -110,7 +124,7 @@ class PassengerConstructorTest {
 		Exception baggageWidthException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage width value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, 0, -150, 0, 0, false, "VS 95", 0.0);
+			new Passenger("David", "Smith", "ABC678", 0, 0, -150, 0, 0, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -124,7 +138,7 @@ class PassengerConstructorTest {
 		Exception baggageHeightException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage height value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, 0, 0, -200, 0, false, "VS 95", 0.0);
+			new Passenger("David", "Smith", "ABC678", 0, 0, 0, -200, 0, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -138,7 +152,7 @@ class PassengerConstructorTest {
 		Exception baggageVolumeException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage volume value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, -125.69, false, "VS 95", 0.0);
+			new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, -125.69, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -152,7 +166,7 @@ class PassengerConstructorTest {
 		Exception flightCodeException = assertThrows(IllegalStateException.class, () -> {
 			
 			// Flight code value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, 0, false, "AA3", 0.0);
+			new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, 0, false, "AA3", 0.0);
 		});
 		
 		// The expected exception should throw.
@@ -166,7 +180,7 @@ class PassengerConstructorTest {
 		Exception passengerExcessBaggageFee = assertThrows(CheckInException.class, () -> {
 			
 			// Passenger excess baggage fee value is invalid.
-			 new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, 0, false, "VS 95", -800.45);
+			new Passenger("David", "Smith", "ABC678", 0, 0, 0, 0, 0, false, "VS 95", -800.45);
 		});
 		
 		// The expected exception should throw.
