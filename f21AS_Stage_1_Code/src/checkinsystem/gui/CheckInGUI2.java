@@ -193,7 +193,12 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		
         		frame.setVisible(false);
         		
-        		bookingLists.updatePassengerDetails(passenger);
+        		try {
+					bookingLists.updatePassengerDetails(passenger);
+				} catch (CheckInException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         		
         		Passenger ps = bookingLists.findByBookingReference(passenger.getBookingReference());
         		System.out.println(ps.getFirstName());
