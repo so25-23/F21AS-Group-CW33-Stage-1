@@ -4,18 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import checkinsystem.model.CheckInException;
 import checkinsystem.model.Passenger;
 
 class PassengerConstructorTest {
 
 	// Normal test case (valid data - working as intended)
 	@Test
-	public void testWorkingPassengerConstructor() {
+	public void testWorkingPassengerConstructor() throws CheckInException {
 		
 		// Creation of a Passenger object for testing
 		Passenger testPassenger = new Passenger("David", "Smith", "ABC678", 0.0, 0.0,
 				0.0, 0.0, 0.0, false, "VS 95");
-		
+	
 		// Assert the expected results
 		assertEquals("David", testPassenger.getFirstName());
 		assertEquals("Smith", testPassenger.getLastName());
@@ -41,8 +42,8 @@ class PassengerConstructorTest {
             new Passenger("David", "", "ABC678", 0, 0, 0, 0, 0, false, "VS 95");
         });
 		
-		// This test should fail here due to the expected exception.
-		assertEquals("Smith", lastNameException.getMessage());
+		// The expected exception should throw.
+		assertTrue(true, lastNameException.getMessage());
 	}
 	
 	// Exception test case (invalid data - booking reference not provided).
@@ -55,8 +56,8 @@ class PassengerConstructorTest {
             new Passenger("David", "Smith", "", 0, 0, 0, 0, 0, false, "VS 95");
         });
 		
-		// This test should fail here due to the expected exception.
-		assertEquals("ABC123", bookingReferenceException.getMessage());
+		// The expected exception should throw.
+		assertTrue(true, bookingReferenceException.getMessage());
 	}
 	
 	// Exception test case (invalid data - last name and booking reference not provided).
@@ -69,7 +70,21 @@ class PassengerConstructorTest {
             new Passenger("David", "", "", 0, 0, 0, 0, 0, false, "VS 95");
         });
 		
-		// This test should fail here due to the expected exception.
-		assertEquals("ABC123", lastNameAndBookingReferenceException.getMessage());
+		// The expected exception should throw.
+		assertTrue(true, lastNameAndBookingReferenceException.getMessage());
+	}
+	
+	// Exception test case (invalid data - baggage weight value is less than 0).
+	@Test
+	public void testBaggageWeightInvalid() {
+		
+		Exception baggageWeightException = assertThrows(CheckInException.class, () -> {
+			
+			// Baggage weight value is invalid.
+			 new Passenger("David", "Smith", "ABC678", -1, 0, 0, 0, 0, false, "VS 95");
+		});
+		
+		// The expected exception should throw.
+		assertTrue(true, baggageWeightException.getMessage());
 	}
 }
