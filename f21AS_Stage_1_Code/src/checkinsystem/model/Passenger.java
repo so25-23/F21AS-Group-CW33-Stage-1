@@ -33,30 +33,30 @@ public class Passenger implements FlightCode {
 		
 		// lastName and bookingReference must be entered.
 		if (lastName.length() == 0 || bookingReference.length() == 0) {
-			throw new IllegalStateException("lastName or bookingReference cannot be left blank");
+			throw new IllegalStateException("lastName or bookingReference cannot be left blank.");
 		}
 		
-		// baggageWeight must be equal or greater than 0.
+		// baggageWeight must be equal to or greater than 0.
 		if (baggageWeight < 0) {
 			throw new CheckInException(baggageWeight);
 		}
 		
-		// baggageLength must be equal or greater than 0.
+		// baggageLength must be equal to or greater than 0.
 		if (baggageLength < 0) {
 			throw new CheckInException(baggageLength);
 		}
 		
-		// baggageWidth must be equal or greater than 0.
+		// baggageWidth must be equal to or greater than 0.
 		if (baggageWidth < 0) {
 			throw new CheckInException(baggageWidth);
 		}
 		
-		// baggageHeight must be equal or greater than 0.
+		// baggageHeight must be equal to or greater than 0.
 		if (baggageHeight < 0) {
 			throw new CheckInException(baggageHeight);
 		}
 		
-		// baggageVolume must be equal or greater than 0.
+		// baggageVolume must be equal to or greater than 0.
 		if (baggageVolume < 0) {
 			throw new CheckInException(baggageVolume);
 		}
@@ -66,7 +66,7 @@ public class Passenger implements FlightCode {
 			throw new IllegalStateException("flightCode must be 5 characters in length (including white space); for example, 'AA 12'");
 		}
 		
-		// passengerExcessBaggageFee must be equal or greater than 0.
+		// passengerExcessBaggageFee must be equal to or greater than 0.
 		if (passengerExcessBaggageFee < 0) {
 			throw new CheckInException(passengerExcessBaggageFee);
 		}

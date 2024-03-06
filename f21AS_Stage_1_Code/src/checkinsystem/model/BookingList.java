@@ -257,8 +257,9 @@ public class BookingList {
 	/**
 	 * Read in the details of each Flight from a text file.
 	 * @param filename The imported name of the file to read.
+	 * @throws CheckInException 
 	 */
-	public void readFlightsTextFile(String filename) {
+	public void readFlightsTextFile(String filename) throws CheckInException {
 		
 		// Test for errors during execution.
 		try { 
@@ -352,8 +353,9 @@ public class BookingList {
 	/**
 	 * Extracts data from line in flights file. 
 	 * @param textLine Each line of text in the file to be extracted.
+	 * @throws CheckInException 
 	 */
-	private void extractFlightsTextFileLine(String textLine) {
+	private void extractFlightsTextFileLine(String textLine) throws CheckInException {
 		
 		// Test for errors during execution.
 		try {
@@ -547,8 +549,9 @@ public class BookingList {
 	 * Updates the Passenger object's details (GUI).
 	 * @param passenger The passenger object to update.
 	 * TODO Tag - Abeer addition 
+	 * @throws CheckInException 
 	 */
-	public void updatePassengerDetails(Passenger passenger) { 
+	public void updatePassengerDetails(Passenger passenger) throws CheckInException { 
 
 		// For each item in passengerList, execute the loop body referring to the Passenger object.
 		for (Passenger ps : passengerList) {
