@@ -143,19 +143,23 @@ public class Passenger implements FlightCode {
 		double volumeFee = 0.0;
 		double weightFee = 0.0;
 
-		if (this.getBaggageVolume() > 0 && this.getBaggageVolume() < 5000) {
+		if (this.getBaggageVolume() > 0 && this.getBaggageVolume() < 5000) { 
             volumeFee = 5.0;
-        } else if (this.getBaggageVolume() < 10000) {
+        //} else if (this.getBaggageVolume() < 10000) { Old TODO
+		} else if (this.getBaggageVolume() >= 5000  && this.getBaggageVolume() < 10000) { // New (fix)    
             volumeFee = 10.0;
-        } else {
+        //} else { Old TODO
+		} else if(this.getBaggageVolume() >= 10000){ // New (fix)   
             volumeFee = 15.0;
         }
 
         if (this.getBaggageWeight() > 0 && this.getBaggageWeight() < 50) {
             weightFee = 5.0;
-        } else if (this.getBaggageWeight() < 100) {
+        //} else if (this.getBaggageWeight() < 100) { Old TODO
+        } else if (this.getBaggageWeight() >= 50 && this.getBaggageWeight() < 100) { // New (fix)  
             weightFee = 10.0;
-        } else {
+        //} else { Old TODO
+        } else if(this.getBaggageWeight() >= 100){ // New (fix)
             weightFee = 15.0;
         }
 
