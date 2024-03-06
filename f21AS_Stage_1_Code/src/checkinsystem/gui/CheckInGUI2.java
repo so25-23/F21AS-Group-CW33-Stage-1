@@ -123,7 +123,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         			height_ = 0.0;
         		}
         		try {
-        			weight_ = Double.parseDouble(weight);
+        			weight_ = Double.parseDouble(weight); 
         		}catch(Exception ex) {
         			weight_ = 0.0;
         		}

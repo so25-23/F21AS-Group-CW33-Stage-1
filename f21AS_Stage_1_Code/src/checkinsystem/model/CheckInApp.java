@@ -26,7 +26,7 @@ public class CheckInApp {
 	 * TODO Tag - Abeer addition
 	 */
 	public void showGUI() {
-		CheckInGUI gui = new CheckInGUI(bookingLists);
+		CheckInGUI gui = new CheckInGUI(bookingLists); 
         gui.setVisible(true);
     } 
 	
