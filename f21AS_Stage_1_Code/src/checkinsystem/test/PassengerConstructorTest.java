@@ -15,7 +15,7 @@ class PassengerConstructorTest {
 		
 		// Creation of a Passenger object for testing
 		Passenger testPassenger = new Passenger("David", "Smith", "ABC678", 0.0, 0.0,
-				0.0, 0.0, 0.0, false, "VS 95");
+				0.0, 0.0, 0.0, false, "VS 95", 0.0);
 	
 		// Assert the expected results
 		assertEquals("David", testPassenger.getFirstName());
@@ -28,6 +28,7 @@ class PassengerConstructorTest {
 		assertEquals(0.0, testPassenger.getBaggageVolume());
 		assertEquals(false, testPassenger.getCheckedInStatus());
 		assertEquals("VS 95", testPassenger.getFlightCode());
+		assertEquals(0.0, testPassenger.getPassengerExcessBaggageFee());
 	}
 	
 	//TODO Additional unit tests
@@ -39,7 +40,7 @@ class PassengerConstructorTest {
 		Exception lastNameException = assertThrows(IllegalStateException.class, () -> {
 			
 			// Last name is missing.
-            new Passenger("David", "", "ABC678", 0, 0, 0, 0, 0, false, "VS 95");
+            new Passenger("David", "", "ABC678", 0, 0, 0, 0, 0, false, "VS 95", 0.0);
         });
 		
 		// The expected exception should throw.
@@ -53,7 +54,7 @@ class PassengerConstructorTest {
 		Exception bookingReferenceException = assertThrows(IllegalStateException.class, () -> {
 			
 			// Booking reference is missing.
-            new Passenger("David", "Smith", "", 0, 0, 0, 0, 0, false, "VS 95");
+            new Passenger("David", "Smith", "", 0, 0, 0, 0, 0, false, "VS 95", 0.0);
         });
 		
 		// The expected exception should throw.
@@ -67,7 +68,7 @@ class PassengerConstructorTest {
 		Exception lastNameAndBookingReferenceException = assertThrows(IllegalStateException.class, () -> {
 			
 			// Last name and booking reference are missing.
-            new Passenger("David", "", "", 0, 0, 0, 0, 0, false, "VS 95");
+            new Passenger("David", "", "", 0, 0, 0, 0, 0, false, "VS 95", 0.0);
         });
 		
 		// The expected exception should throw.
@@ -81,10 +82,12 @@ class PassengerConstructorTest {
 		Exception baggageWeightException = assertThrows(CheckInException.class, () -> {
 			
 			// Baggage weight value is invalid.
-			 new Passenger("David", "Smith", "ABC678", -1, 0, 0, 0, 0, false, "VS 95");
+			 new Passenger("David", "Smith", "ABC678", -1, 0, 0, 0, 0, false, "VS 95", 0.0);
 		});
 		
 		// The expected exception should throw.
 		assertTrue(true, baggageWeightException.getMessage());
 	}
+	
+	// TODO Unit tests for remaining baggage fields
 }
