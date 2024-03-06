@@ -32,8 +32,9 @@ public class CheckInApp {
 	
 	/**
 	 * TODO TEST METHOD (WORK IN PROGRESS) 
+	 * @throws CheckInException 
 	 */
-	public void execute() {
+	public void execute() throws CheckInException {
 		
 		// Bookings
 		bookingLists.readBookingsTextFile("Bookings.csv");
@@ -55,8 +56,9 @@ public class CheckInApp {
 	 * TODO Add GUI and any other relevant methods.
 	 * TODO Add Exception(s).
 	 * @param arg Default main parameter (auto generated).
+	 * @throws CheckInException 
 	 */
-	public static void main (String arg[])  {
+	public static void main (String arg[]) throws CheckInException  {
 		
        	// Create a CheckInApp object with contents.  
 		CheckInApp checkInApp = new CheckInApp();

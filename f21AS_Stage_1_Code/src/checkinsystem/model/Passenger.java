@@ -28,12 +28,17 @@ public class Passenger implements FlightCode {
 					 double baggageHeight,
 					 double baggageVolume,
 					 boolean checkedIn,
-					 String flightCode) { 
+					 String flightCode) throws CheckInException { 
 		
 		// lastName and bookingReference must be entered.
 		if (lastName.length() == 0 || bookingReference.length() == 0) {
 			
 			throw new IllegalStateException("lastName or bookingReference cannot be left blank");
+		}
+		
+		// baggageWeight must be equal or greater than 0.
+		if (baggageWeight < 0) {
+			throw new CheckInException(baggageWeight);
 		}
 		
 		this.firstName = firstName;
