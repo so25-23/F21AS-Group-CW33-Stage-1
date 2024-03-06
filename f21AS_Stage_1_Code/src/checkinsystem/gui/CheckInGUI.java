@@ -88,6 +88,22 @@ public class CheckInGUI extends JFrame implements ActionListener{
             		}
         		}catch( Exception ex) {
         			System.out.println(ex.getMessage());
+        			
+        			// Abeer recent additions TODO - Tag
+        			JDialog d = new JDialog(frame, "dialog Box");
+
+                    // create a label
+                    JLabel l = new JLabel("No Booking Against this Data!");
+                    l.setHorizontalAlignment(SwingConstants.CENTER);
+                    d.add(l);
+
+                    d.setBounds(350,220,200,200);
+
+                    // set visibility of dialog
+                    d.setVisible(true);
+
+                    lastNameTextField.setText("");
+        			bookingReferenceTextField.setText("");
         		}
 	
         	}
