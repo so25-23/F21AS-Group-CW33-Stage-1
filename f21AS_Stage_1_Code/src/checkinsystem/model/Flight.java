@@ -117,7 +117,7 @@ public class Flight implements FlightCode {
 	}
 	
 	/**
-	 * Determine if the Flight's capacity has been exceeded.
+	 * Determine if the Flight's passenger capacity has been exceeded.
 	 * @return The verdict; true = yes and false = no.
 	 */
 	public boolean isFlightCapacityExceeded() {
