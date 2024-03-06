@@ -20,31 +20,35 @@ public class CheckInApp {
 	}
 	
 	// Methods
+	
+	/**
+	 * Display the GUI.
+	 * TODO Tag - Abeer addition
+	 */
 	public void showGUI() {
 		CheckInGUI gui = new CheckInGUI(bookingLists);
         gui.setVisible(true);
     } 
 	
 	/**
-	 * TEST METHOD ONLY
+	 * TODO TEST METHOD (WORK IN PROGRESS) 
 	 */
 	public void execute() {
 		
 		// Bookings
-		System.out.println("Loaded data from Bookings.csv");
 		bookingLists.readBookingsTextFile("Bookings.csv");
-		String bookingsData = bookingLists.getFirstReportData();
+		System.out.println("Loaded data from Bookings.csv");
+		//String bookingsData = bookingLists.getFirstReportData();
 		
 		// Flights
-		System.out.println("Loaded data from Flights.csv");
 		bookingLists.readFlightsTextFile("Flights.csv");
-		String flightsData = bookingLists.getLastReportData();
-		
+		System.out.println("Loaded data from Flights.csv");
+		//String flightsData = bookingLists.getLastReportData();
+			
 		// Create report output
-		System.out.print("Created Test.txt report");
-		bookingLists.generateFinalReport("Test.txt", bookingsData, flightsData);
+		//System.out.print("Created On-Exit Report.txt report");
+		//bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData);
 	}
-	
 	
 	/**
 	 * Main program method.
@@ -59,6 +63,8 @@ public class CheckInApp {
 		
 		// Run the full program TODO THIS IS A TEST AND NOT FINAL
 		checkInApp.execute();
+		
+		// Display the GUI on start up. TODO Tag - Abeer addition (remove?)
 		checkInApp.showGUI();
     }
 

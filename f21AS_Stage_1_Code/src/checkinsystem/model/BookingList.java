@@ -174,7 +174,7 @@ public class BookingList {
 		for (Flight flight : flightList) {
 			
 			// Get the passenger's excess baggage fee and add it to the local variable.
-			excessBaggageFee += flight.getExcessBaggageFee();
+			excessBaggageFee += flight.getFlightExcessBaggageFee();
 		}
 		return excessBaggageFee;
 	}
@@ -509,7 +509,7 @@ public class BookingList {
 			onExitReport += String.format("%-6s", flight.getNumberOfPassengersOnBoard());
 			onExitReport += String.format("%31s", flight.getBaggageWeightOnBoard());
 			onExitReport += String.format("%35s", flight.getBaggageVolumeOnBoard());
-			onExitReport += String.format("%35s", flight.getExcessBaggageFee());
+			onExitReport += String.format("%35s", flight.getFlightExcessBaggageFee());
 			onExitReport += String.format("%31s", flight.isFlightCapacityExceeded());
 			onExitReport += "\n";
 		}	
@@ -566,4 +566,35 @@ public class BookingList {
 	     System.exit(1);
 	 	}
 	}
+	
+	/**
+	 * Updates the Passenger object's details (GUI).
+	 * @param passenger The passenger object to update.
+	 * TODO Tag - Abeer addition
+	 */
+	public void updatePassengerDetails(Passenger passenger) {
+
+		// For each item in passengerList, execute the loop body referring to the Passenger object.
+		for (Passenger ps : passengerList) {
+			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) {
+				ps = passenger;
+				break;
+			}
+		}
+
+		for (Flight flight : flightList) {
+			// If the flight code match.
+			if (flight.getFlightCode().equalsIgnoreCase(passenger.getFlightCode())) {
+
+				flight.setNumberOfPassengersOnBoard(flight.getNumberOfPassengersOnBoard() + 1);
+				flight.setBaggageWeightOnBoard(flight.getBaggageWeightOnBoard() + passenger.getBaggageWeight());
+				flight.setBaggageVolumeOnBoard(flight.getBaggageVolumeOnBoard() + passenger.getBaggageVolume());
+				flight.setFlightExcessBaggageFee(flight.getFlightExcessBaggageFee() + passenger.getPassengerExcessBaggageFee());
+				flight.setFlightExceeded(flight.isFlightCapacityExceeded());
+
+				break;
+			}
+		}
+	}
+	
 }

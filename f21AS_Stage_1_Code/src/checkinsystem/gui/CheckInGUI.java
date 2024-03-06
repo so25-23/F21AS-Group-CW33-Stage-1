@@ -10,13 +10,16 @@ import javax.swing.*;
 import checkinsystem.model.BookingList;
 import checkinsystem.model.Passenger;
 
-
+/**
+ * A simple GUI class for the Check-in application.
+ * This GUI class is the initial one.
+ */
 public class CheckInGUI extends JFrame implements ActionListener{
 
 	private BookingList bookingList;
 	
-	public CheckInGUI(BookingList bookingList)
-    {
+	public CheckInGUI(BookingList bookingList) {
+		
 		this.bookingList = bookingList;
 		
 		JFrame frame = new JFrame();
@@ -51,6 +54,7 @@ public class CheckInGUI extends JFrame implements ActionListener{
         
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.addActionListener(new ActionListener() {
+        	
         	public void actionPerformed(ActionEvent e) {
         		
         		System.out.println(lastNameTextField.getText());
@@ -73,18 +77,15 @@ public class CheckInGUI extends JFrame implements ActionListener{
 	
         	}
         });
+        
         btnSubmit.setBounds(300, 200, 150, 30);
+        
         frame.getContentPane().add(btnSubmit);
-        
         frame.setVisible(true);
+	}
         
-    }
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
 	}
-
 }
-

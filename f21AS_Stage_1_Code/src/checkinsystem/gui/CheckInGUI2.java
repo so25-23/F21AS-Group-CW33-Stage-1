@@ -10,7 +10,10 @@ import javax.swing.*;
 import checkinsystem.model.BookingList;
 import checkinsystem.model.Passenger;
 
-
+/**
+ * A simple GUI class for the Check-in application.
+ * This GUI class is the secondary one.
+ */
 public class CheckInGUI2 extends JFrame implements ActionListener{
 	
 	private Passenger passenger;
@@ -130,6 +133,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.addActionListener(new ActionListener() {
+        	
         	public void actionPerformed(ActionEvent e) {
         		
         		frame.setVisible(false);
@@ -144,10 +148,10 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		System.out.println(ps.getCheckedInStatus());
         		
         		// Create report output
-        		System.out.print("Created Test.txt report");
-        		String flightsData = bookingLists.getLastReportData();
+        		System.out.print("Created On-Exit Report.txt report");
         		String bookingsData = bookingLists.getFirstReportData();
-        		bookingLists.generateFinalReport("Test.txt", bookingsData, flightsData);
+        		String flightsData = bookingLists.getLastReportData();
+        		bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData);
         		
         		JDialog d = new JDialog(frame, "dialog Box");
         		 
@@ -164,11 +168,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		System.out.println("Check In Success");
         	}
         });
+        
         btnSubmit.setBounds(220, 250, 150, 30);
+        
         frame.getContentPane().add(btnSubmit);
-        
         frame.setVisible(true);
-        
     }
 	
 	@Override
@@ -177,4 +181,3 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
 	}
 
 }
-
