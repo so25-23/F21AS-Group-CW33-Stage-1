@@ -175,7 +175,7 @@ public class BookingList {
 	 * TODO Confirm if this can be removed before submission
 	 * Determine if a Flight's capacity has been exceeded.
 	 * @return The verdict; true = yes and false = no.
-	 
+	 */
 	public boolean isFlightCapacityExceeded() {
 		
 		// Local variable to hold the exceeded status.
@@ -193,7 +193,7 @@ public class BookingList {
 		}
 		return isExceeded;
 	}
-	*/
+	
 	
 	/**
      * Return the list of Passengers in the passenger list.
@@ -257,8 +257,9 @@ public class BookingList {
 	/**
 	 * Read in the details of each Flight from a text file.
 	 * @param filename The imported name of the file to read.
+	 * @throws CheckInException 
 	 */
-	public void readFlightsTextFile(String filename) {
+	public void readFlightsTextFile(String filename) throws CheckInException {
 		
 		// Test for errors during execution.
 		try { 
@@ -320,7 +321,7 @@ public class BookingList {
 			
 			// Create a Passenger object using the details from the file. 
 			Passenger passenger = new Passenger(firstName, 
-					lastName, bookingReference, 0, 0, 0, 0, 0, checkedInValue, flightCode);
+					lastName, bookingReference, 0, 0, 0, 0, 0, checkedInValue, flightCode, 0);
 			
 			// Add the created Passenger object to its ArrayList.
 			this.addPassenger(passenger); 
@@ -352,8 +353,9 @@ public class BookingList {
 	/**
 	 * Extracts data from line in flights file. 
 	 * @param textLine Each line of text in the file to be extracted.
+	 * @throws CheckInException 
 	 */
-	private void extractFlightsTextFileLine(String textLine) {
+	private void extractFlightsTextFileLine(String textLine) throws CheckInException {
 		
 		// Test for errors during execution.
 		try {
@@ -476,7 +478,7 @@ public class BookingList {
 		// Local variable to contain text strings; initialised with column headers.
 		String onExitReport = "Flight Code    No. of Passengers Checked-In      "
 				+ "Total Passenger Baggage Weight     Total Passenger Baggage Volume     "
-				+ "Total Excess Baggage Fee     Flight Capacity Exceeded?\n";
+				+ "Total Excess Baggage Fee     Flight Capacity Exceeded? (No. of Passengers)\n";
 		
 		// For each item in flight List, execute the loop body referring to the flight object
 		for (Flight flight : flightList) {
@@ -547,8 +549,9 @@ public class BookingList {
 	 * Updates the Passenger object's details (GUI).
 	 * @param passenger The passenger object to update.
 	 * TODO Tag - Abeer addition 
+	 * @throws CheckInException 
 	 */
-	public void updatePassengerDetails(Passenger passenger) {
+	public void updatePassengerDetails(Passenger passenger) throws CheckInException { 
 
 		// For each item in passengerList, execute the loop body referring to the Passenger object.
 		for (Passenger ps : passengerList) {

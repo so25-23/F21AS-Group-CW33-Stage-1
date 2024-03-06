@@ -10,6 +10,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import checkinsystem.model.BookingList;
+import checkinsystem.model.CheckInException;
 import checkinsystem.model.Passenger;
 
 /**
@@ -109,10 +110,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		String weight = weightTextField.getText();
         		
         		Double length_, width_, height_, weight_, volume_;
+        		
         		try {
         			length_ = Double.parseDouble(length);
         		}catch(Exception ex) {
-        			length_ = 0.0;
+        			length_ = 0.0; 
         		}
         		try {
         			width_ = Double.parseDouble(width);
@@ -126,21 +128,59 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		}
         		try {
         			weight_ = Double.parseDouble(weight); 
-        		}catch(Exception ex) {
-        			weight_ = 0.0;
-        		}
+        		}catch(Exception ex) {  
+        			weight_ = 0.0; 
+        		} 
+
+        		volume_ = length_ * width_ * height_; // TODO Volume conversion to cm3 goes here?
         		
-        		volume_ = length_ * width_ * height_;
+        		try {
+					passenger.setBaggageLength(length_);
+				} catch (CheckInException cIE) {
+			
+					// Print the associated system error message 
+					System.out.println("The entered length value of " + cIE.getMessage());
+				}
         		
-        		passenger.setBaggageLength(length_);
-        		passenger.setBaggageWidth(width_);
-        		passenger.setBaggageHeight(height_);
-        		passenger.setBaggageWeight(weight_);
-        		passenger.setBaggageVolume(volume_);
-        		passenger.setCheckInStatus(true);
+        		try {
+					passenger.setBaggageWidth(width_);
+				} catch (CheckInException cIE) {
+				
+					// Print the associated system error message 
+					System.out.println("The entered width value of " + cIE.getMessage());
+				}
         		
-        		double excessFee = passenger.caculateExcessFee();
-        		excessFeeTextField.setText(String.valueOf(excessFee));
+        		try {
+					passenger.setBaggageHeight(height_);
+				} catch (CheckInException cIE) {
+					
+					// Print the associated system error message 
+					System.out.println("The entered height value of " + cIE.getMessage());
+				}
+        		
+        		try {
+					passenger.setBaggageWeight(weight_);
+				} catch (CheckInException cIE) {
+					
+					// Print the associated system error message 
+					System.out.println("The entered weight value of " + cIE.getMessage());
+					
+					// End with system exit
+					//System.exit(0);
+				}
+        		
+        		try {
+					passenger.setBaggageVolume(volume_);
+				} catch (CheckInException cIE) {
+					
+					// Print the associated system error message 
+					System.out.println("The calculated volume value of " + cIE.getMessage());
+				}
+        		
+        		passenger.setCheckInStatus(true); // original
+        		
+        		double excessFee = passenger.caculateExcessFee(); 
+        		excessFeeTextField.setText(String.valueOf(excessFee)); 
         	}
         });
         btnExcessFee.setBounds(480, 220, 100, 20);
@@ -153,7 +193,12 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		
         		frame.setVisible(false);
         		
-        		bookingLists.updatePassengerDetails(passenger);
+        		try {
+					bookingLists.updatePassengerDetails(passenger);
+				} catch (CheckInException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         		
         		Passenger ps = bookingLists.findByBookingReference(passenger.getBookingReference());
         		System.out.println(ps.getFirstName());
