@@ -550,7 +550,7 @@ public class BookingList {
 
 		// For each item in passengerList, execute the loop body referring to the Passenger object.
 		for (Passenger ps : passengerList) {
-			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) {
+			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) { 
 				ps = passenger;
 				break;
 			}
