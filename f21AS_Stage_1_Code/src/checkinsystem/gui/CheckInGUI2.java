@@ -2,8 +2,9 @@ package checkinsystem.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter; // TODO Tag - Abeer fix
+import java.awt.event.WindowEvent; // TODO Tag - Abeer fix
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
 	
 	private Passenger passenger;
 	
-	public CheckInGUI2(Passenger passenger, BookingList bookingLists)
+	public CheckInGUI2(Passenger passenger, BookingList bookingLists) 
     {
 		this.passenger = passenger;
 		
@@ -29,6 +30,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
+        // TODO Tag - Abeer fix
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -160,12 +162,14 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         		System.out.println(ps.getBaggageHeight());
         		System.out.println(ps.getCheckedInStatus());
         		
-        		// Create report output
-        		/*System.out.print("Created On-Exit Report.txt report");
+        		// Create report output TODO Tag - commented out as per Abeer's fix
+        		/*
+        		System.out.print("Created On-Exit Report.txt report");
         		String bookingsData = bookingLists.getFirstReportData();
         		String flightsData = bookingLists.getLastReportData();
         		bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData);
         		*/
+        		
         		JDialog d = new JDialog(frame, "dialog Box");
         		 
                 // create a label

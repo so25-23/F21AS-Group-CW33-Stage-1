@@ -2,8 +2,9 @@ package checkinsystem.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter; // TODO Tag - Abeer fix
+import java.awt.event.WindowEvent; // TODO Tag - Abeer fix
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ public class CheckInGUI extends JFrame implements ActionListener{
 
 	private BookingList bookingList;
 	
-	public CheckInGUI(BookingList bookingList) {
+	public CheckInGUI(BookingList bookingList) { 
 		
 		this.bookingList = bookingList;
 		
@@ -29,6 +30,7 @@ public class CheckInGUI extends JFrame implements ActionListener{
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
+        // TODO Tag - Abeer fix
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
