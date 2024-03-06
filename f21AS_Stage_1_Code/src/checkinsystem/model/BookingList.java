@@ -214,8 +214,9 @@ public class BookingList {
     /**
 	 * Read in the details of each Passenger from a text file. 
 	 * @param filename The imported name of the file to read.
+     * @throws CheckInException 
 	 */
-	public void readBookingsTextFile(String filename) {
+	public void readBookingsTextFile(String filename) throws CheckInException {
 		
 		// Test for errors during execution.
 		try { 
@@ -298,8 +299,9 @@ public class BookingList {
 	/**
 	 * Extracts data from line in bookings file. 
 	 * @param textLine Each line of text in the file to be extracted.
+	 * @throws CheckInException 
 	 */
-	private void extractBookingsTextFileLine(String textLine) {
+	private void extractBookingsTextFileLine(String textLine) throws CheckInException {
 		
 		// Test for errors during execution.
 		try {
