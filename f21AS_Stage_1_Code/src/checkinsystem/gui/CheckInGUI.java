@@ -20,7 +20,7 @@ public class CheckInGUI extends JFrame implements ActionListener{
 
 	private BookingList bookingList;
 	
-	public CheckInGUI(BookingList bookingList) { 
+	public CheckInGUI(BookingList bookingList) {  
 		
 		this.bookingList = bookingList;
 		
