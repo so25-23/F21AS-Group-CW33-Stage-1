@@ -19,7 +19,7 @@ public class BookingList {
 	 */
 	public BookingList() {
 		passengerList = new ArrayList<Passenger>();
-		flightList = new ArrayList<Flight>();
+		flightList = new ArrayList<Flight>(); 
 	}
 	
 	// Methods
@@ -544,7 +544,7 @@ public class BookingList {
 	/**
 	 * Updates the Passenger object's details (GUI).
 	 * @param passenger The passenger object to update.
-	 * TODO Tag - Abeer addition
+	 * TODO Tag - Abeer addition 
 	 */
 	public void updatePassengerDetails(Passenger passenger) {
 
