@@ -101,8 +101,6 @@ class PassengerConstructorTest {
 		assertTrue(true, baggageWeightException.getMessage());
 	}
 	
-	// TODO Unit tests for remaining baggage fields
-	
 	// Exception test case (invalid data - baggage length value is less than 0).
 	@Test
 	public void testBaggageLengthInvalid() {
