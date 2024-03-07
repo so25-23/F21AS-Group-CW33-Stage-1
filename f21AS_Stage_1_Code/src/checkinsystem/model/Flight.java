@@ -13,8 +13,8 @@ public class Flight implements FlightCode {
 	private int passengersOnBoard;
 	private double baggageWeightOnBoard;
 	private double baggageVolumeOnBoard;
-	private boolean isFlightExceeded; // New addition (change from design)
-	private double flightExcessBaggageFee; // New addition (change from design)
+	private boolean isFlightExceeded; 
+	private double flightExcessBaggageFee; 
 	
 	/**
 	 * Constructor to set up the Flight's information.
@@ -133,6 +133,14 @@ public class Flight implements FlightCode {
 	}
 	
 	/**
+	 * Completing the interface method.
+	 * @return The flight's flight code.
+	 */
+	public String getFlightCode() {
+		return flightCode;
+	}
+	
+	/**
 	 * @return The Flight's number of passengers on board.
 	 */
 	public int getNumberOfPassengersOnBoard() {
@@ -151,14 +159,6 @@ public class Flight implements FlightCode {
 	 */
 	public double getBaggageVolumeOnBoard() {
 		return baggageVolumeOnBoard; 
-	}
-	
-	/**
-	 * Completing the interface method.
-	 * @return The flight's flight code.
-	 */
-	public String getFlightCode() {
-		return flightCode;
 	}
 	
 	/**
@@ -309,7 +309,6 @@ public class Flight implements FlightCode {
 	/**
 	 * Set a new value for the Flight's exceeded status.
 	 * @param isFlightExceeded The new status of exceeded.
-	 * TODO Tag - Abeer addition. 
 	 */
 	public void setFlightExceeded(boolean isFlightExceeded) {
 		this.isFlightExceeded = isFlightExceeded;
