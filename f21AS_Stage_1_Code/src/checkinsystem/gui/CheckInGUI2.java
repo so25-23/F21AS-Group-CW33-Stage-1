@@ -54,7 +54,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         detailsLabel.setBounds(220, 70, 200, 15);
         frame.getContentPane().add(detailsLabel);
         
-        JLabel lengthLabel = new JLabel("Length");
+        JLabel lengthLabel = new JLabel("Length (cm)");
         lengthLabel.setBounds(150, 100, 150, 14);
         frame.getContentPane().add(lengthLabel);
         
@@ -69,7 +69,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         lengthErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
         frame.getContentPane().add(lengthErrorMessage); // TODO Tag - Abeer latest editions
         
-        JLabel widthLabel = new JLabel("Width");
+        JLabel widthLabel = new JLabel("Width (cm)");
         widthLabel.setBounds(150, 130, 150, 14);
         frame.getContentPane().add(widthLabel);
          
@@ -84,7 +84,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         widthErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
         frame.getContentPane().add(widthErrorMessage); // TODO Tag - Abeer latest editions
         
-        JLabel heightLabel = new JLabel("Height");
+        JLabel heightLabel = new JLabel("Height (cm)");
         heightLabel.setBounds(150, 160, 150, 14);
         frame.getContentPane().add(heightLabel);
          
@@ -99,7 +99,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         heightErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
         frame.getContentPane().add(heightErrorMessage); // TODO Tag - Abeer latest editions
         
-        JLabel weightLabel = new JLabel("Weight");
+        JLabel weightLabel = new JLabel("Weight (kg)");
         weightLabel.setBounds(150, 190, 150, 14);
         frame.getContentPane().add(weightLabel);
          
@@ -114,7 +114,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         weightErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
         frame.getContentPane().add(weightErrorMessage); // TODO Tag - Abeer latest editions
         
-        JLabel excessFeeLabel = new JLabel("Excess Fee");
+        JLabel excessFeeLabel = new JLabel("Excess Fee (£)");
         excessFeeLabel.setBounds(150, 220, 150, 14);
         frame.getContentPane().add(excessFeeLabel);
          
