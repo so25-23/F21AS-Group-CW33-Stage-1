@@ -25,60 +25,6 @@ public class BookingList {
 	// Methods
 	
 	/**
-     * Return the Passenger object with a specified booking reference.
-     * @param bookingReference The booking reference to search.
-     * @return The matching Passenger object; null if none.
-     */
-	public Passenger findByBookingReference(String bookingReference) {
-		
-		// For each item in passengerList, execute the loop body referring to the Passenger object.
-		for (Passenger passenger : passengerList) {
-			
-			// If the booking reference match.
-			if (passenger.getBookingReference().equalsIgnoreCase(bookingReference)) {
-				return passenger;
-			}
-		}
-		return null;
-	}
-	
-	/**
-     * Return the Passenger object with a specified flight code.
-     * @param flightCode The flight code to search.
-     * @return The matching Passenger object; null if none.
-     */
-	public Passenger findPassengerByFlightCode(String flightCode) {
-		
-		// For each item in passengerList, execute the loop body referring to the Passenger object.
-		for (Passenger passenger : passengerList) {
-			
-			// If the flight code match.
-			if (passenger.getFlightCode().equalsIgnoreCase(flightCode)) {
-				return passenger;
-			}
-		}
-		return null;
-	}
-	
-	/**
-     * Return the Flight object with a specified flight code.
-     * @param flightCode The flight code to search.
-     * @return The matching Flight object; null if none.
-     */
-	public Flight findFlightByFlightCode(String flightCode) {
-		
-		// For each item in flightList, execute the loop body referring to the Flight object.
-		for (Flight flight : flightList) {
-			
-			// If the flight code match.
-			if (flight.getFlightCode().equalsIgnoreCase(flightCode)) {
-				return flight;
-			}
-		}
-		return null;
-	}
-	
-	/**
 	 * Return the number of passengers who have checked-in.
 	 * @return The number of passengers checked-in.
 	 */
@@ -154,6 +100,95 @@ public class BookingList {
 	}
 	
 	/**
+	 * @return The report output (Booking file data).
+	 */
+	public String getFirstReportData() {
+		
+		// Local variable to contain text strings
+		String finalReport = "";
+			
+		return finalReport;
+	}
+	
+	/**
+	 * @return The report output (Flight file data) and structures report design. 
+	 */
+	public String getLastReportData() {
+		
+		// Local variable to contain text strings; initialised with column headers.
+		String onExitReport = "Flight Code    No. of Passengers Checked-In      "
+				+ "Total Passenger Baggage Weight     Total Passenger Baggage Volume     "
+				+ "Total Excess Baggage Fee     Flight Capacity Exceeded? (No. of Passengers)\n";
+		
+		// For each item in flight List, execute the loop body referring to the flight object
+		for (Flight flight : flightList) {
+			
+			onExitReport += String.format("%-15s", flight.getFlightCode());
+			onExitReport += String.format("%-6s", flight.getNumberOfPassengersOnBoard());
+			onExitReport += String.format("%31s", flight.getBaggageWeightOnBoard());
+			onExitReport += String.format("%35s", flight.getBaggageVolumeOnBoard());
+			onExitReport += String.format("%35s", flight.getFlightExcessBaggageFee());
+			onExitReport += String.format("%31s", flight.isFlightCapacityExceeded());
+			onExitReport += "\n";
+		}	
+		return onExitReport;
+	}
+	
+	/**
+     * Return the Passenger object with a specified booking reference.
+     * @param bookingReference The booking reference to search.
+     * @return The matching Passenger object; null if none.
+     */
+	public Passenger findByBookingReference(String bookingReference) {
+		
+		// For each item in passengerList, execute the loop body referring to the Passenger object.
+		for (Passenger passenger : passengerList) {
+			
+			// If the booking reference match.
+			if (passenger.getBookingReference().equalsIgnoreCase(bookingReference)) {
+				return passenger;
+			}
+		}
+		return null;
+	}
+	
+	/**
+     * Return the Passenger object with a specified flight code.
+     * @param flightCode The flight code to search.
+     * @return The matching Passenger object; null if none.
+     */
+	public Passenger findPassengerByFlightCode(String flightCode) {
+		
+		// For each item in passengerList, execute the loop body referring to the Passenger object.
+		for (Passenger passenger : passengerList) {
+			
+			// If the flight code match.
+			if (passenger.getFlightCode().equalsIgnoreCase(flightCode)) {
+				return passenger;
+			}
+		}
+		return null;
+	}
+	
+	/**
+     * Return the Flight object with a specified flight code.
+     * @param flightCode The flight code to search.
+     * @return The matching Flight object; null if none.
+     */
+	public Flight findFlightByFlightCode(String flightCode) {
+		
+		// For each item in flightList, execute the loop body referring to the Flight object.
+		for (Flight flight : flightList) {
+			
+			// If the flight code match.
+			if (flight.getFlightCode().equalsIgnoreCase(flightCode)) {
+				return flight;
+			}
+		}
+		return null;
+	}
+	
+	/**
      * Return the Flight object with a specified carrier.
      * @param carrier The carrier to search.
      * @return The matching Flight object; null if none.
@@ -172,7 +207,22 @@ public class BookingList {
 	}
 	
 	/**
-	 * TODO Confirm if this can be removed before submission
+     * Return the list of Passengers in the passenger list.
+     * @return The list of Passengers in the list
+     */
+    public ArrayList<Passenger> listAllPassengers() {
+        return passengerList;
+    }
+    
+    /**
+     * Return the list of Flights in the flight list.
+     * @return The list of Flights in the list
+     */
+    public ArrayList<Flight> listAllFlights() {
+        return flightList;
+    }
+	
+	/**
 	 * Determine if a Flight's capacity has been exceeded.
 	 * @return The verdict; true = yes and false = no.
 	 */
@@ -194,23 +244,6 @@ public class BookingList {
 		return isExceeded;
 	}
 	
-	
-	/**
-     * Return the list of Passengers in the passenger list.
-     * @return The list of Passengers in the list
-     */
-    public ArrayList<Passenger> listAllPassengers() {
-        return passengerList;
-    }
-    
-    /**
-     * Return the list of Flights in the flight list.
-     * @return The list of Flights in the list
-     */
-    public ArrayList<Flight> listAllFlights() {
-        return flightList;
-    }
-    
     /**
 	 * Read in the details of each Passenger from a text file. 
 	 * @param filename The imported name of the file to read.
@@ -460,38 +493,33 @@ public class BookingList {
 	}
 	
 	/**
-	 * @return The report output (Booking file data). TODO This may not be needed (need to confirm)
+	 * Updates the Passenger object's details (GUI).
+	 * @param passenger The passenger object to update.
+	 * @throws CheckInException 
 	 */
-	public String getFirstReportData() {
-		
-		// Local variable to contain text strings
-		String finalReport = "";
-			
-		return finalReport;
-	}
-	
-	/**
-	 * @return The report output (Flight file data) and structures report design. 
-	 */
-	public String getLastReportData() {
-		
-		// Local variable to contain text strings; initialised with column headers.
-		String onExitReport = "Flight Code    No. of Passengers Checked-In      "
-				+ "Total Passenger Baggage Weight     Total Passenger Baggage Volume     "
-				+ "Total Excess Baggage Fee     Flight Capacity Exceeded? (No. of Passengers)\n";
-		
-		// For each item in flight List, execute the loop body referring to the flight object
+	public void updatePassengerDetails(Passenger passenger) throws CheckInException { 
+
+		// For each item in passengerList, execute the loop body referring to the Passenger object.
+		for (Passenger ps : passengerList) {
+			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) { 
+				ps = passenger;
+				break;
+			}
+		}
+
 		for (Flight flight : flightList) {
-			
-			onExitReport += String.format("%-15s", flight.getFlightCode());
-			onExitReport += String.format("%-6s", flight.getNumberOfPassengersOnBoard());
-			onExitReport += String.format("%31s", flight.getBaggageWeightOnBoard());
-			onExitReport += String.format("%35s", flight.getBaggageVolumeOnBoard());
-			onExitReport += String.format("%35s", flight.getFlightExcessBaggageFee());
-			onExitReport += String.format("%31s", flight.isFlightCapacityExceeded());
-			onExitReport += "\n";
-		}	
-		return onExitReport;
+			// If the flight code match.
+			if (flight.getFlightCode().equalsIgnoreCase(passenger.getFlightCode())) {
+
+				flight.setNumberOfPassengersOnBoard(flight.getNumberOfPassengersOnBoard() + 1);
+				flight.setBaggageWeightOnBoard(flight.getBaggageWeightOnBoard() + passenger.getBaggageWeight());
+				flight.setBaggageVolumeOnBoard(flight.getBaggageVolumeOnBoard() + passenger.getBaggageVolume());
+				flight.setFlightExcessBaggageFee(flight.getFlightExcessBaggageFee() + passenger.getPassengerExcessBaggageFee());
+				flight.setFlightExceeded(flight.isFlightCapacityExceeded());
+
+				break;
+			}
+		}
 	}
 	
 	/**
@@ -544,36 +572,4 @@ public class BookingList {
 	     System.exit(1);
 	 	}
 	}
-	
-	/**
-	 * Updates the Passenger object's details (GUI).
-	 * @param passenger The passenger object to update.
-	 * TODO Tag - Abeer addition 
-	 * @throws CheckInException 
-	 */
-	public void updatePassengerDetails(Passenger passenger) throws CheckInException { 
-
-		// For each item in passengerList, execute the loop body referring to the Passenger object.
-		for (Passenger ps : passengerList) {
-			if (passenger.getBookingReference().equalsIgnoreCase(ps.getBookingReference())) { 
-				ps = passenger;
-				break;
-			}
-		}
-
-		for (Flight flight : flightList) {
-			// If the flight code match.
-			if (flight.getFlightCode().equalsIgnoreCase(passenger.getFlightCode())) {
-
-				flight.setNumberOfPassengersOnBoard(flight.getNumberOfPassengersOnBoard() + 1);
-				flight.setBaggageWeightOnBoard(flight.getBaggageWeightOnBoard() + passenger.getBaggageWeight());
-				flight.setBaggageVolumeOnBoard(flight.getBaggageVolumeOnBoard() + passenger.getBaggageVolume());
-				flight.setFlightExcessBaggageFee(flight.getFlightExcessBaggageFee() + passenger.getPassengerExcessBaggageFee());
-				flight.setFlightExceeded(flight.isFlightCapacityExceeded());
-
-				break;
-			}
-		}
-	}
-	
 }
