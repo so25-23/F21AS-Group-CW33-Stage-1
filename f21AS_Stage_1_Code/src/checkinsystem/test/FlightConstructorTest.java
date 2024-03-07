@@ -49,7 +49,7 @@ public class FlightConstructorTest {
 	
 	// Exception test case (invalid data - destination airport not provided).
 	@Test
-	public void testDestinationirportInvalid() {
+	public void testDestinationAirportInvalid() {
 		
 		Exception destinationAirportException = assertThrows(IllegalStateException.class, () -> {
 			
