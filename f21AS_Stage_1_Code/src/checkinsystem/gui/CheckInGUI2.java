@@ -4,16 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter; 
 import java.awt.event.WindowEvent; 
-import java.awt.event.FocusAdapter; // TODO Tag - Abeer latest editions
-import java.awt.event.FocusEvent; // TODO Tag - Abeer latest editions
-import java.awt.event.KeyAdapter; // TODO Tag - Abeer latest editions
-import java.awt.event.KeyEvent; // TODO Tag - Abeer latest editions
-
+import java.awt.event.FocusAdapter; 
+import java.awt.event.FocusEvent; 
+import java.awt.event.KeyAdapter; 
+import java.awt.event.KeyEvent; 
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent; // TODO Tag - Abeer latest editions
-import javax.swing.event.DocumentListener; // TODO Tag - Abeer latest editions
+import javax.swing.event.DocumentEvent; 
+import javax.swing.event.DocumentListener; 
 
 import checkinsystem.model.BookingList;
 import checkinsystem.model.CheckInException;
@@ -37,7 +36,6 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
-        // TODO Tag - Abeer fix
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -63,11 +61,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.getContentPane().add(lengthTextField);
         lengthTextField.setColumns(10);
         
-        JLabel lengthErrorMessage = new JLabel("Please input valid length"); // TODO Tag - Abeer latest editions
-        lengthErrorMessage.setBounds(320, 118, 150, 14); // TODO Tag - Abeer latest editions
-        lengthErrorMessage.setForeground(Color.red); // TODO Tag - Abeer latest editions
-        lengthErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
-        frame.getContentPane().add(lengthErrorMessage); // TODO Tag - Abeer latest editions
+        JLabel lengthErrorMessage = new JLabel("Please input valid length"); 
+        lengthErrorMessage.setBounds(320, 118, 150, 14); 
+        lengthErrorMessage.setForeground(Color.red); 
+        lengthErrorMessage.setVisible(false); 
+        frame.getContentPane().add(lengthErrorMessage); 
         
         JLabel widthLabel = new JLabel("Width (cm)");
         widthLabel.setBounds(150, 130, 150, 14);
@@ -78,11 +76,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.getContentPane().add(widthTextField);
         widthTextField.setColumns(10);
         
-        JLabel widthErrorMessage = new JLabel("Please input valid width"); // TODO Tag - Abeer latest editions
-        widthErrorMessage.setBounds(320, 148, 150, 14); // TODO Tag - Abeer latest editions
-        widthErrorMessage.setForeground(Color.red); // TODO Tag - Abeer latest editions
-        widthErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
-        frame.getContentPane().add(widthErrorMessage); // TODO Tag - Abeer latest editions
+        JLabel widthErrorMessage = new JLabel("Please input valid width"); 
+        widthErrorMessage.setBounds(320, 148, 150, 14); 
+        widthErrorMessage.setForeground(Color.red); 
+        widthErrorMessage.setVisible(false); 
+        frame.getContentPane().add(widthErrorMessage); 
         
         JLabel heightLabel = new JLabel("Height (cm)");
         heightLabel.setBounds(150, 160, 150, 14);
@@ -93,11 +91,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.getContentPane().add(heightTextField);
         heightTextField.setColumns(10);
         
-        JLabel heightErrorMessage = new JLabel("Please input valid height"); // TODO Tag - Abeer latest editions
-        heightErrorMessage.setBounds(320, 178, 150, 14); // TODO Tag - Abeer latest editions
-        heightErrorMessage.setForeground(Color.red); // TODO Tag - Abeer latest editions
-        heightErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
-        frame.getContentPane().add(heightErrorMessage); // TODO Tag - Abeer latest editions
+        JLabel heightErrorMessage = new JLabel("Please input valid height"); 
+        heightErrorMessage.setBounds(320, 178, 150, 14); 
+        heightErrorMessage.setForeground(Color.red); 
+        heightErrorMessage.setVisible(false); 
+        frame.getContentPane().add(heightErrorMessage); 
         
         JLabel weightLabel = new JLabel("Weight (kg)");
         weightLabel.setBounds(150, 190, 150, 14);
@@ -108,11 +106,11 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.getContentPane().add(weightTextField);
         weightTextField.setColumns(10);
         
-        JLabel weightErrorMessage = new JLabel("Please input valid weight"); // TODO Tag - Abeer latest editions
-        weightErrorMessage.setBounds(320, 208, 150, 14); // TODO Tag - Abeer latest editions
-        weightErrorMessage.setForeground(Color.red); // TODO Tag - Abeer latest editions
-        weightErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
-        frame.getContentPane().add(weightErrorMessage); // TODO Tag - Abeer latest editions
+        JLabel weightErrorMessage = new JLabel("Please input valid weight"); 
+        weightErrorMessage.setBounds(320, 208, 150, 14); 
+        weightErrorMessage.setForeground(Color.red); 
+        weightErrorMessage.setVisible(false); 
+        frame.getContentPane().add(weightErrorMessage); 
         
         JLabel excessFeeLabel = new JLabel("Excess Fee (£)");
         excessFeeLabel.setBounds(150, 220, 150, 14);
@@ -124,17 +122,17 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         frame.getContentPane().add(excessFeeTextField);
         excessFeeTextField.setColumns(10);
         
-        JLabel excessFeeErrorMessage = new JLabel("Please calculate excess fee"); // TODO Tag - Abeer latest editions
-        excessFeeErrorMessage.setBounds(320, 238, 200, 14); // TODO Tag - Abeer latest editions
-        excessFeeErrorMessage.setForeground(Color.red); // TODO Tag - Abeer latest editions
-        excessFeeErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
-        frame.getContentPane().add(excessFeeErrorMessage); // TODO Tag - Abeer latest editions
+        JLabel excessFeeErrorMessage = new JLabel("Please calculate excess fee"); 
+        excessFeeErrorMessage.setBounds(320, 238, 200, 14); 
+        excessFeeErrorMessage.setForeground(Color.red); 
+        excessFeeErrorMessage.setVisible(false); 
+        frame.getContentPane().add(excessFeeErrorMessage); 
         
         JButton btnExcessFee= new JButton("Calculate");
         btnExcessFee.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		excessFeeErrorMessage.setVisible(false); // TODO Tag - Abeer latest editions
+        		excessFeeErrorMessage.setVisible(false); 
         		
         		System.out.println(passenger.getFirstName());
         		System.out.println(passenger.getLastName());
@@ -170,7 +168,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
         			weight_ = 0.0; 
         		} 
 
-        		volume_ = length_ * width_ * height_; // TODO Volume conversion to cm3 goes here?
+        		volume_ = length_ * width_ * height_; 
         		
         		try {
 					passenger.setBaggageLength(length_);
@@ -202,9 +200,6 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
 					
 					// Print the associated system error message 
 					System.out.println("The entered weight value of " + cIE.getMessage());
-					
-					// End with system exit
-					//System.exit(0);
 				}
         		
         		try {
@@ -260,14 +255,6 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
             		System.out.println(ps.getBaggageLength());
             		System.out.println(ps.getBaggageHeight());
             		System.out.println(ps.getCheckedInStatus());
-
-            		// Create report output TODO Tag - commented out as per Abeer's fix
-            		/*
-            		System.out.print("Created On-Exit Report.txt report");
-            		String bookingsData = bookingLists.getFirstReportData();
-            		String flightsData = bookingLists.getLastReportData();
-            		bookingLists.generateFinalReport("On-Exit Report.txt", bookingsData, flightsData);
-            		*/
 
             		JDialog d = new JDialog(frame, "dialog Box");
 
@@ -469,9 +456,7 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
 					weightErrorMessage.setVisible(true);
 					// Print the associated system error message 
 					System.out.println("The entered weight value of " + cIE.getMessage());
-
 				}
-
 			}
 
 			@Override
@@ -503,7 +488,5 @@ public class CheckInGUI2 extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 	}
-
 }
